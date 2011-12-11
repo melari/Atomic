@@ -1,0 +1,4 @@
+Content\MenuFont.xnb
+Content\TitleFont.xnb
+Content\Pixel.xnb
+Content\ConsoleFont.xnb

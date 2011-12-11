@@ -1,0 +1,10 @@
+C:\Users\Caleb\Workspace\c#\Atomic\Atomic\Atomic\bin\x86\Debug\Atomic.exe
+C:\Users\Caleb\Workspace\c#\Atomic\Atomic\Atomic\bin\x86\Debug\Atomic.pdb
+C:\Users\Caleb\Workspace\c#\Atomic\Atomic\Atomic\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Caleb\Workspace\c#\Atomic\Atomic\Atomic\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Caleb\Workspace\c#\Atomic\Atomic\Atomic\obj\x86\Debug\Atomic.exe
+C:\Users\Caleb\Workspace\c#\Atomic\Atomic\Atomic\obj\x86\Debug\Atomic.pdb
+C:\Users\Caleb\Workspace\c#\Atomic\Atomic\Atomic\bin\x86\Debug\Content\MenuFont.xnb
+C:\Users\Caleb\Workspace\c#\Atomic\Atomic\Atomic\bin\x86\Debug\Content\TitleFont.xnb
+C:\Users\Caleb\Workspace\c#\Atomic\Atomic\Atomic\bin\x86\Debug\Content\Pixel.xnb
+C:\Users\Caleb\Workspace\c#\Atomic\Atomic\Atomic\bin\x86\Debug\Content\ConsoleFont.xnb

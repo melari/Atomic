@@ -1,0 +1,1 @@
+C:\Users\Caleb\Workspace\c#\Atomic\Atomic\AtomicContent\obj\x86\Debug\ResolveAssemblyReference.cache
