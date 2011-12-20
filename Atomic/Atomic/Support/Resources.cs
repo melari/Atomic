@@ -29,6 +29,9 @@ namespace Atomic
             fonts.Add("ConsoleFont", content.Load<SpriteFont>("ConsoleFont"));
 
             sprites.Add("Pixel", content.Load<Texture2D>("Pixel"));
+
+            //Particles
+            sprites.Add("PART_BasicCircle16", content.Load<Texture2D>("Particles/basic_circle16"));
         }
 
         public static SpriteFont GetFont(string name)

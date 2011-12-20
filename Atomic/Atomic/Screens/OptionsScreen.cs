@@ -30,7 +30,7 @@ namespace Atomic
         public static readonly float SELECTED_POS = 100;
 
         List<MenuItem> menuItems = new List<MenuItem>();
-        int selected = 0;
+        int selected = 0;        
 
         public OptionsScreen(Engine engine)
             : base(engine, Color.Red)
@@ -65,7 +65,7 @@ namespace Atomic
             if (Input.KeyPressed(Keys.Up))
             { 
                 selected--;
-                if (selected < 0) { selected = menuItems.Count - 1; }
+                if (selected < 0) { selected = menuItems.Count - 1; }                
             }
 
             if (Input.KeyPressed(Keys.Down)) 
@@ -141,16 +141,18 @@ namespace Atomic
 
         public override void  Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawString(Resources.GetFont("TitleFont"), "Atomic - Rapid Game Prototyping", new Vector2(300, 10), Color.Black);
+            spriteBatch.Begin();
+            spriteBatch.DrawString(Resources.GetFont("TitleFont"), "Atomic - Simple 2d Class Library", new Vector2(300, 10), Color.Black);
 
             float y = 200;
             foreach(MenuItem item in menuItems)
             {
                 spriteBatch.DrawString(Resources.GetFont("MenuFont"), item.GetText(), new Vector2(item.x, y), Color.White);
                 y += 50;
-            }
+            }          
 
-            DrawHelp.DrawCircle(spriteBatch, Input.mouse, 5, Color.Black, 8);            
+            DrawHelp.DrawCircle(spriteBatch, Input.mouse, 5, Color.Black, 8);
+            spriteBatch.End();
         }
     }
 }

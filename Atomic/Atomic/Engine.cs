@@ -135,18 +135,18 @@ namespace Atomic
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(currentScreen.GetColor());     // Clear the screen
-
-            spriteBatch.Begin();
-            currentScreen.Draw(spriteBatch);                    // Draw the screen that currently has focus.
+            
+            currentScreen.Draw(spriteBatch);                    // Draw the screen that currently has focus.            
 
             if (transiting)                                     // Draw any transition effects if we are changing screens.
             {
+                spriteBatch.Begin();
                 if (OUT) { trans.OUT_Draw(spriteBatch); }
                 else { trans.IN_Draw(spriteBatch); }
+                spriteBatch.End();
             }
 
-            console.Draw(spriteBatch);                          // Draw the console on top of everything.
-            spriteBatch.End();                                  // Output the buffer.
+            console.Draw(spriteBatch);                          // Draw the console on top of everything.            
 
             base.Draw(gameTime);
         }

@@ -108,6 +108,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Particles\Flame.cs" />
     <Compile Include="Particles\Particle.cs" />
     <Compile Include="Particles\ParticleEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

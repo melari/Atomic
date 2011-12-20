@@ -16,10 +16,10 @@ namespace Atomic
 
     class Particle
     {
-        Vector2 position;
-        Vector2 velocity;
-        Vector2 gravity;
-        ParticleEngine engine;
+        protected Vector2 position;
+        protected Vector2 velocity;
+        protected Vector2 gravity;
+        protected ParticleEngine engine;
 
         public Particle(ParticleEngine engine, Vector2 position)
             : this(engine, position, Vector2.Zero, Vector2.Zero)

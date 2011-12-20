@@ -26,14 +26,6 @@ namespace Atomic
         public void DestroyParticle(Particle part)
         {
             particles.Remove(part);
-        }
-
-        public void CreateBurst(Particle part, int num)
-        {
-            for (int i = 0; i < num; i++)
-            {
-                AddParticle(part);
-            }
         }        
 
         public void Update()

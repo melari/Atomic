@@ -42,6 +42,8 @@ namespace Atomic
         List<MenuItem> menuItems = new List<MenuItem>();
         int selected = 0;
 
+        ParticleEngine particleEngine = new ParticleEngine();
+
         public MenuScreen(Engine engine)
             : base(engine)
         {            
@@ -89,11 +91,20 @@ namespace Atomic
                 else { menuItems[i].dest_x = DEFAULT_POS; }
                 menuItems[i].Update();
             }
+
+            particleEngine.Update();
+            particleEngine.AddParticle(new Flame(particleEngine, new Vector2(VideoSettings.resolution.X / 2, VideoSettings.resolution.Y / 2)));
         }
 
         public override void  Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawString(Resources.GetFont("TitleFont"), "Atomic - Rapid Game Prototyping", new Vector2(300, 10), Color.Black);
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Additive);
+            particleEngine.Draw(spriteBatch);
+            spriteBatch.End();
+
+
+            spriteBatch.Begin();
+            spriteBatch.DrawString(Resources.GetFont("TitleFont"), "Atomic - Simple 2d Class Library", new Vector2(300, 10), Color.Black);
 
             float y = 200;
             foreach(MenuItem item in menuItems)
@@ -101,8 +112,8 @@ namespace Atomic
                 spriteBatch.DrawString(Resources.GetFont("MenuFont"), item.GetText(), new Vector2(item.x, y), Color.White);
                 y += 50;
             }
-
-            DrawHelp.DrawCircle(spriteBatch, Input.mouse, 5, Color.Black, 8);            
+            DrawHelp.DrawCircle(spriteBatch, Input.mouse, 5, Color.Black, 8);
+            spriteBatch.End();            
         }
     }
 }

@@ -293,6 +293,7 @@ namespace Atomic
         {
             if (enabled)
             {
+                spriteBatch.Begin();
                 DrawHelp.DrawRectangle(spriteBatch, 0, 0, VideoSettings.resolution.X, VideoSettings.resolution.Y, new Color(0f, 0f, 0f, 0.85f));
 
                 float y = 10f;
@@ -308,12 +309,13 @@ namespace Atomic
                 }
 
                 spriteBatch.DrawString(Resources.GetFont("ConsoleFont"), "> " + current + "|", new Vector2(10, y + 20), Color.Green);
-            }
+                spriteBatch.End();
+            }            
         }
 
         private void DrawLine(SpriteBatch spriteBatch, int i, float y)
-        {
-            spriteBatch.DrawString(Resources.GetFont("ConsoleFont"), lines[i], new Vector2(10, y), Color.White);
+        {            
+            spriteBatch.DrawString(Resources.GetFont("ConsoleFont"), lines[i], new Vector2(10, y), Color.White);            
         }
     }
 }
