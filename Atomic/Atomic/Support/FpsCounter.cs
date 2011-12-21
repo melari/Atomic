@@ -13,11 +13,16 @@ namespace Atomic
 
         static int fps = 0;
         static int count = 0;
+
+        static int update_fps = 0;
+        static int update_count = 0;
         static TimeSpan elapsedTime = TimeSpan.Zero;
 
         public static void Update(GameTime gameTime)
         {
             if (!ENABLED) { return; }
+
+            update_count++;
 
             elapsedTime += gameTime.ElapsedGameTime;
 
@@ -26,6 +31,8 @@ namespace Atomic
                 elapsedTime -= TimeSpan.FromSeconds(1);
                 fps = count;
                 count = 0;
+                update_fps = update_count;
+                update_count = 0;                
             }
         }
 
@@ -37,6 +44,9 @@ namespace Atomic
             spriteBatch.Begin();
             spriteBatch.DrawString(Resources.GetFont("ConsoleFont"), "FPS: " + fps.ToString(), new Vector2(33, 33), Color.Black);
             spriteBatch.DrawString(Resources.GetFont("ConsoleFont"), "FPS: " + fps.ToString(), new Vector2(32, 32), Color.White);
+
+            spriteBatch.DrawString(Resources.GetFont("ConsoleFont"), "UFPS: " + update_fps.ToString(), new Vector2(33, 66), Color.Black);
+            spriteBatch.DrawString(Resources.GetFont("ConsoleFont"), "UFPS: " + update_fps.ToString(), new Vector2(32, 62), Color.White);
             spriteBatch.End();
         }
     }
