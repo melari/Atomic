@@ -108,6 +108,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Particles\Methods\DeadMethod.cs" />
+    <Compile Include="Particles\Methods\DriftMethod.cs" />
+    <Compile Include="Particles\Methods\ParticleMethod.cs" />
     <Compile Include="Particles\Flame.cs" />
     <Compile Include="Particles\Particle.cs" />
     <Compile Include="Particles\ParticleEngine.cs" />
