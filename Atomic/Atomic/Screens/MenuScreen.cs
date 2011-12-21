@@ -45,8 +45,7 @@ namespace Atomic
         public MenuScreen(Engine engine)
             : base(engine)
         {            
-            menuItems.Add(new MenuItem("Continue", -100, DEFAULT_POS));
-            menuItems.Add(new MenuItem("New Game", -600, DEFAULT_POS));
+            menuItems.Add(new MenuItem("Partical Example", -100, DEFAULT_POS));            
             menuItems.Add(new MenuItem("Options", -1100, DEFAULT_POS));
             menuItems.Add(new MenuItem("Exit", -1600, DEFAULT_POS));
         }
@@ -77,10 +76,10 @@ namespace Atomic
                     case 0:
                         engine.ChangeScreen(new TestScreen(engine), new Fade(0.1f));
                         break;
-                    case 2:
+                    case 1:
                         engine.ChangeScreen(new OptionsScreen(engine), new Fade(0.1f));
                         break;
-                    case 3:
+                    case 2:
                         engine.Exit();
                         break;
                 }
