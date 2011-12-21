@@ -123,6 +123,8 @@ namespace Atomic
                 }
             }
 
+            FpsCounter.Update(gameTime);
+
             base.Update(gameTime);
         }
 
@@ -146,7 +148,8 @@ namespace Atomic
                 spriteBatch.End();
             }
 
-            console.Draw(spriteBatch);                          // Draw the console on top of everything.            
+            console.Draw(spriteBatch);                          // Draw the console on top of everything.
+            FpsCounter.Draw(spriteBatch);
 
             base.Draw(gameTime);
         }

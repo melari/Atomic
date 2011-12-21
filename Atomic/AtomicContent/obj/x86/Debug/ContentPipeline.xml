@@ -38,13 +38,22 @@
       <Time>2011-11-06T08:13:18.992931-05:00</Time>
     </Item>
     <Item>
-      <Source>Particles\basic_circle16.png</Source>
-      <Name>Particles\basic_circle16</Name>
+      <Source>Particles\explosion.png</Source>
+      <Name>Particles\explosion</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Caleb\Workspace\c#\Atomic\Atomic\Atomic\bin\x86\Debug\Content\Particles\basic_circle16.xnb</Output>
-      <Time>2011-12-19T21:40:55.390184-05:00</Time>
+      <Output>C:\Users\Caleb\Workspace\c#\Atomic\Atomic\Atomic\bin\x86\Debug\Content\Particles\explosion.xnb</Output>
+      <Time>2011-12-20T11:05:44.5331425-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\smoke.bmp</Source>
+      <Name>Particles\smoke</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Caleb\Workspace\c#\Atomic\Atomic\Atomic\bin\x86\Debug\Content\Particles\smoke.xnb</Output>
+      <Time>2011-12-20T11:05:52.5047565-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

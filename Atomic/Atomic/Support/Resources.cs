@@ -30,8 +30,9 @@ namespace Atomic
 
             sprites.Add("Pixel", content.Load<Texture2D>("Pixel"));
 
-            //Particles
-            sprites.Add("PART_BasicCircle16", content.Load<Texture2D>("Particles/basic_circle16"));
+            //Particles            
+            sprites.Add("PART_Smoke", content.Load<Texture2D>("Particles/smoke"));
+            sprites.Add("PART_Fire", content.Load<Texture2D>("Particles/explosion"));
         }
 
         public static SpriteFont GetFont(string name)

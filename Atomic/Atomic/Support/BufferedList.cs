@@ -17,10 +17,6 @@ namespace Atomic
         public List<T> AddBuffer = new List<T>();
         public List<T> RemoveBuffer = new List<T>();
 
-        public BufferedList()
-        {
-        }
-
         public void ApplyBuffers()
         {
             AddRange(AddBuffer);
@@ -30,6 +26,7 @@ namespace Atomic
             RemoveBuffer.Clear();
         }
 
+        //Predicate match for RemoveAll
         private bool InRemoveBuffer(T obj)
         {
             return RemoveBuffer.Contains(obj);

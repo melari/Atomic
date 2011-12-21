@@ -43,20 +43,6 @@ namespace Atomic
 
         public override bool ExecuteCommand(string c, string[] args, Console console)
         {
-            switch (c)
-            {
-                case "help":
-                    console.AddLine("==OPTION SCREEN COMMANDS==");
-                    console.AddLine("special - display a text.");
-                    break;
-
-                case "special":
-                    console.AddLine("This is a special per-screen command.");
-                    break;
-
-                default:
-                    return false;
-            }
             return true;
         }
 

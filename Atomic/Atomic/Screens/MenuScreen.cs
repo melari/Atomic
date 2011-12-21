@@ -40,9 +40,7 @@ namespace Atomic
         public static readonly float SELECTED_POS = 100;
 
         List<MenuItem> menuItems = new List<MenuItem>();
-        int selected = 0;
-
-        ParticleEngine particleEngine = new ParticleEngine();
+        int selected = 0;        
 
         public MenuScreen(Engine engine)
             : base(engine)
@@ -75,7 +73,10 @@ namespace Atomic
             if (Input.KeyPressed(Keys.Enter))
             {
                 switch (selected)
-                {                    
+                {
+                    case 0:
+                        engine.ChangeScreen(new TestScreen(engine), new Fade(0.1f));
+                        break;
                     case 2:
                         engine.ChangeScreen(new OptionsScreen(engine), new Fade(0.1f));
                         break;
@@ -90,19 +91,11 @@ namespace Atomic
                 if (i == selected) { menuItems[i].dest_x = SELECTED_POS; }
                 else { menuItems[i].dest_x = DEFAULT_POS; }
                 menuItems[i].Update();
-            }
-
-            particleEngine.Update();
-            particleEngine.AddParticle(new Flame(particleEngine, new Vector2(VideoSettings.resolution.X / 2, VideoSettings.resolution.Y / 2)));
+            }            
         }
 
         public override void  Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Additive);
-            particleEngine.Draw(spriteBatch);
-            spriteBatch.End();
-
-
+        {                                   
             spriteBatch.Begin();
             spriteBatch.DrawString(Resources.GetFont("TitleFont"), "Atomic - Simple 2d Class Library", new Vector2(300, 10), Color.Black);
 

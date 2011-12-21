@@ -8,4 +8,5 @@ C:\Users\Caleb\Workspace\c#\Atomic\Atomic\Atomic\bin\x86\Debug\Content\MenuFont.
 C:\Users\Caleb\Workspace\c#\Atomic\Atomic\Atomic\bin\x86\Debug\Content\TitleFont.xnb
 C:\Users\Caleb\Workspace\c#\Atomic\Atomic\Atomic\bin\x86\Debug\Content\Pixel.xnb
 C:\Users\Caleb\Workspace\c#\Atomic\Atomic\Atomic\bin\x86\Debug\Content\ConsoleFont.xnb
-C:\Users\Caleb\Workspace\c#\Atomic\Atomic\Atomic\bin\x86\Debug\Content\Particles\basic_circle16.xnb
+C:\Users\Caleb\Workspace\c#\Atomic\Atomic\Atomic\bin\x86\Debug\Content\Particles\explosion.xnb
+C:\Users\Caleb\Workspace\c#\Atomic\Atomic\Atomic\bin\x86\Debug\Content\Particles\smoke.xnb

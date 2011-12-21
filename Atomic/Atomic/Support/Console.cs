@@ -163,6 +163,17 @@ namespace Atomic
                     }
                     break;
 
+                case "fps":
+                    if (args[0] == "1")
+                    {
+                        FpsCounter.ENABLED = true;
+                    }
+                    else
+                    {
+                        FpsCounter.ENABLED = false;
+                    }
+                    break;
+
                 default:
                     if (args[0] == "=" && args[1] != null)
                     {
@@ -190,6 +201,7 @@ namespace Atomic
             AddLine("<name> = <value>            - Assigns <value> to variable <name>");
             AddLine("fullscreen <value>          - <value> to 0 sets windowed mode. 1 sets fullscreen.");
             AddLine("resolution <width> <height> - Sets resolution to given dimensions.");
+            AddLine("fps <value>                 - <value> to 0 disables fps counting. 1 enables.");            
         }
 
         public void Update()
