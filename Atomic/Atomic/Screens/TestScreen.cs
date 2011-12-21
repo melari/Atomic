@@ -45,9 +45,9 @@ namespace Atomic
             }
 
             if (MathExtra.rand.NextDouble() < 0.4f)
-            {
+            {                
                 particleEngine.AddParticle(new Flame(particleEngine, new Vector2(VideoSettings.resolution.X / 4, VideoSettings.resolution.Y / 2), Color.Green), true);
-                particleEngine.AddParticle(new Flame(particleEngine, new Vector2(VideoSettings.resolution.X / 4 * 3, VideoSettings.resolution.Y / 2), Color.Blue), true);
+                particleEngine.AddParticle(new Flame(particleEngine, new Vector2(VideoSettings.resolution.X / 4 * 3, VideoSettings.resolution.Y / 2), Color.Blue), true);                
             }
         }
 

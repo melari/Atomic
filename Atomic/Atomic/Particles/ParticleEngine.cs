@@ -17,11 +17,7 @@ namespace Atomic
     {        
         public BufferedList<Particle> alphaParticles = new BufferedList<Particle>();
         public BufferedList<Particle> additiveParticles = new BufferedList<Particle>();
-
-        public int updateRate = -1;
-        public int drawRate = -1;
-        int updateCount = 0;
-        int drawCount = 0;
+                
 
         public void AddParticle(Particle part)
         {
@@ -51,26 +47,21 @@ namespace Atomic
         }
 
         public void Update()
-        {
-            if (updateRate == -1 || updateCount++ > 60 - updateRate)
+        {            
+            foreach (Particle p in alphaParticles)
             {
-                updateCount = 0;
-
-                foreach (Particle p in alphaParticles)
-                {
-                    p.Update();
-                }
-                foreach (Particle p in additiveParticles)
-                {
-                    p.Update();
-                }
-                alphaParticles.ApplyBuffers();
-                additiveParticles.ApplyBuffers();
+                p.Update();
             }
+            foreach (Particle p in additiveParticles)
+            {
+                p.Update();
+            }
+            alphaParticles.ApplyBuffers();
+            additiveParticles.ApplyBuffers();            
         }
 
         public void Draw(SpriteBatch spriteBatch)
-        {            
+        {
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
             foreach (Particle p in alphaParticles)
             {
