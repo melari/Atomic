@@ -112,6 +112,7 @@
     <Compile Include="Particles\Methods\DeadMethod.cs" />
     <Compile Include="Particles\Methods\DriftMethod.cs" />
     <Compile Include="Particles\Methods\FireballMethod.cs" />
+    <Compile Include="Particles\Methods\FollowPointMethod.cs" />
     <Compile Include="Particles\Methods\ParticleMethod.cs" />
     <Compile Include="Particles\Flame.cs" />
     <Compile Include="Particles\Particle.cs" />

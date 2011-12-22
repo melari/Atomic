@@ -15,6 +15,10 @@ namespace Atomic
         public TestScreen(Engine engine)
             : base(engine, Color.Black)
         {
+            Particle p = new Emitter(particleEngine, new Vector2(VideoSettings.resolution.X / 4 * 3, VideoSettings.resolution.Y / 2 + 50));
+            new FollowPointMethod(p, particleEngine, new Vector2(VideoSettings.resolution.X / 4 * 3 + 50, VideoSettings.resolution.Y / 2 + 50), 0.5f);
+            ((FollowPointMethod)p.GetMethod()).velocity = new Vector2(0.0f, -10.0f);
+            particleEngine.AddParticle(p);
         }
 
         public override bool ExecuteCommand(string c, string[] args, Console console)
@@ -53,9 +57,9 @@ namespace Atomic
 
             if (Input.KeyPressed(Keys.Space))
             {                
-                Particle p = new Emitter(particleEngine, Input.mouse);
-                new FireballMethod(p, particleEngine, new Vector2(0.0f, -10.0f), Color.Red);
-                //new DriftMethod(p, particleEngine, Vector2.Zero, Vector2.Zero, 300, 0, 0);
+                Particle p = new Emitter(particleEngine, new Vector2(10f, 10f));
+                //new FireballMethod(p, particleEngine, new Vector2(0.0f, -10.0f), Color.Red);
+                new FollowPointMethod(p, particleEngine, Input.mouse, 0.5f);
                 particleEngine.AddParticle(p);
             }
             
@@ -68,6 +72,9 @@ namespace Atomic
             spriteBatch.Begin();
             spriteBatch.DrawString(Resources.GetFont("TitleFont"), "Atomic - Example Particle Effects Screen", new Vector2(300, 10), Color.White);
             spriteBatch.DrawString(Resources.GetFont("ConsoleFont"), "Particles: " + particleEngine.ParticleCount().ToString(), new Vector2(10, 10), Color.White);
+
+            DrawHelp.DrawCircle(spriteBatch, Input.mouse, 5, Color.White, 8);
+            DrawHelp.DrawCircle(spriteBatch, Input.mouse, 4, Color.Black, 8);
             spriteBatch.End();
         }
     }

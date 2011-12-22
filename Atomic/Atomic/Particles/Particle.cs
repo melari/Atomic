@@ -35,6 +35,11 @@ namespace Atomic
             this.method = method;
         }
 
+        public ParticleMethod GetMethod()
+        {
+            return method;
+        }
+
         public void Update()
         {
             method.Update();
