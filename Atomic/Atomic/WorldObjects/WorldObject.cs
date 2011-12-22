@@ -12,13 +12,15 @@ namespace Atomic
      * WorldObjects are usually contained within a Screen object and would be the 
      * active objects in the game world. They are defined by a position and a velocity.
      * By default physics, position is the integral of velocity and is updated every Update()
+     * Likewise for velocity and gravity.
      */
 
-    class WorldObject
+    abstract class WorldObject
     {
         protected Screen screen;
         public Vector2 position;
         public Vector2 velocity;
+        public Vector2 gravity = Vector2.Zero;
 
         public WorldObject(Screen screen)
             : this(screen, Vector2.Zero) { }
@@ -33,11 +35,10 @@ namespace Atomic
 
         public virtual void Update()
         {
+            velocity += gravity;
             position += velocity;
         }
 
-        public virtual void Draw(SpriteBatch spriteBatch)
-        {
-        }
+        public abstract void Draw(SpriteBatch spriteBatch);        
     }
 }
