@@ -15,7 +15,8 @@ namespace Atomic
         float life;
         float normalizedLifetime;
 
-        protected float rotation = 0.0f;
+        Color baseColor;
+        
         protected float startScale = 0.75f;
         protected float endScale = 1.0f; 
 
@@ -30,7 +31,10 @@ namespace Atomic
             this.endScale = endScale;
 
             life = lifeLength;
-            rotation = (float)(MathExtra.rand.NextDouble() * Math.PI * 2);
+            part.rotation = (float)(MathExtra.rand.NextDouble() * Math.PI * 2);
+
+            baseColor = part.color;
+            part.color = Color.Transparent;            
         }
 
         public override void Update()
@@ -40,18 +44,14 @@ namespace Atomic
 
             normalizedLifetime = 1 - ((float)(life--) / lifeLength);
 
+            float alpha = 4 * normalizedLifetime * (1 - normalizedLifetime);
+            part.color = new Color(((float)baseColor.R / 255f) * alpha, ((float)baseColor.G / 255f) * alpha, ((float)baseColor.B / 255f) * alpha, alpha);
+            part.scale = startScale + (endScale - startScale) * normalizedLifetime;
+
             if (life <= 0)
             {
-                engine.BufferedDestroyParticle(part);
+                engine.DestroyParticle(part);
             }
-        }
-
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            float alpha = 4 * normalizedLifetime * (1 - normalizedLifetime);
-            Color drawColor = new Color(((float)part.color.R / 255f) * alpha, ((float)part.color.G / 255f) * alpha, ((float)part.color.B / 255f) * alpha, alpha);
-            float drawScale = startScale + (endScale - startScale) * normalizedLifetime;
-            spriteBatch.Draw(part.sprite, part.position, null, drawColor, rotation, new Vector2(256, 256), drawScale, SpriteEffects.None, 0.0f);
-        }
+        }        
     }
 }

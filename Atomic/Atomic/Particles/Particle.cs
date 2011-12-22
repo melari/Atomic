@@ -6,39 +6,40 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Atomic
-{
-
+{    
     /*
-     * Particles are generally used for special effects in games. There are many different settings available
-     * to change how the particles behave.
+     * A Particle defines a special effect. They may only directly define Draw methods, but no Update.
+     * For this, a ParticleMethod object must be created and set to control the particle.
      */
 
-    class Particle
+    abstract class Particle
     {
-        protected ParticleEngine engine;
-        public Vector2 position;
-        public Texture2D sprite;
+        protected ParticleEngine engine;        
         protected ParticleMethod method;
-        
-        public Color color = new Color(1.0f, 1.0f, 1.0f, 0);           
 
-        public Particle(ParticleEngine engine, Vector2 position, Texture2D sprite)
+        public Vector2 position;        
+        public float scale = 1.0f;
+        public float rotation = 0.0f;
+        public Color color = Color.White;
+
+        public Particle(ParticleEngine engine, Vector2 position)
         {
             this.engine = engine;
-            this.position = position;            
-            this.sprite = sprite;
+            this.position = position;                        
 
             method = new DeadMethod(this, engine);
-        }        
+        }
 
-        public virtual void Update()
+        public void SetMethod(ParticleMethod method)
+        {
+            this.method = method;
+        }
+
+        public void Update()
         {
             method.Update();
         }
 
-        public virtual void Draw(SpriteBatch spriteBatch)
-        {
-            method.Draw(spriteBatch);
-        }
+        public abstract void Draw(SpriteBatch spriteBatch);        
     }
 }

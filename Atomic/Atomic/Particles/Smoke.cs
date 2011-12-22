@@ -10,16 +10,13 @@ namespace Atomic
     class Smoke : Particle
     {
         public Smoke(ParticleEngine engine, Vector2 position)
-            : base(engine, 
-                    position,                     
-                    Resources.GetSprite("PART_Smoke"))
+            : base(engine, position)
         {
-            method = new DriftMethod(this, engine,
-                                    new Vector2((float)MathExtra.rand.NextDouble() / 4 - 0.125f, (float)MathExtra.rand.NextDouble() - 1.25f),
-                                    new Vector2(0.001f, 0.0f),
-                                    300,
-                                    0.125f,
-                                    0.25f);            
+        }
+
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(Resources.GetSprite("PART_Smoke"), position, null, color, rotation, new Vector2(256, 256), scale, SpriteEffects.None, 0.0f);
         }
     }
 }

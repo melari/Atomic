@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace Atomic
 {
@@ -37,18 +38,27 @@ namespace Atomic
 
         public override void Update()
         {
-            particleEngine.Update();
+            particleEngine.Update();            
+            
             if (MathExtra.rand.NextDouble() < 0.2f)
             {
-                particleEngine.AddParticle(new Flame(particleEngine, new Vector2(VideoSettings.resolution.X / 2, VideoSettings.resolution.Y / 2)), true);
-                particleEngine.AddParticle(new Smoke(particleEngine, new Vector2(VideoSettings.resolution.X / 2, VideoSettings.resolution.Y / 2 - 50)));                
+                particleEngine.CreateFire(new Vector2(VideoSettings.resolution.X / 2, VideoSettings.resolution.Y / 2), Color.White, 0.25f, true);
             }
 
             if (MathExtra.rand.NextDouble() < 0.4f)
+            {
+                particleEngine.CreateFire(new Vector2(VideoSettings.resolution.X / 4, VideoSettings.resolution.Y / 2), Color.Green, 0.25f, false);
+                particleEngine.CreateFire(new Vector2(VideoSettings.resolution.X / 4 * 3, VideoSettings.resolution.Y / 2), Color.Blue, 0.25f, false);
+            }             
+
+            if (Input.KeyPressed(Keys.Space))
             {                
-                particleEngine.AddParticle(new Flame(particleEngine, new Vector2(VideoSettings.resolution.X / 4, VideoSettings.resolution.Y / 2), Color.Green), true);
-                particleEngine.AddParticle(new Flame(particleEngine, new Vector2(VideoSettings.resolution.X / 4 * 3, VideoSettings.resolution.Y / 2), Color.Blue), true);                
+                Particle p = new Emitter(particleEngine, Input.mouse);
+                new FireballMethod(p, particleEngine, new Vector2(0.0f, -10.0f), Color.Red);
+                //new DriftMethod(p, particleEngine, Vector2.Zero, Vector2.Zero, 300, 0, 0);
+                particleEngine.AddParticle(p);
             }
+            
         }
 
         public override void Draw(SpriteBatch spriteBatch)

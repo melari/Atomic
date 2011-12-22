@@ -6,6 +6,12 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Atomic
 {
+    /*
+     * ParticleMethods are the controllers of actual Particle objects. They
+     * define the behavior (generally including life, movement, and slight visual changes).
+     * The actual drawing is defined in the particle object itself.
+     */
+
     abstract class ParticleMethod
     {
         protected Particle part;
@@ -15,9 +21,9 @@ namespace Atomic
         {
             this.part = part;
             this.engine = engine;
+             part.SetMethod(this);
         }
 
-        public abstract void Update();
-        public abstract void Draw(SpriteBatch spriteBatch);
+        public abstract void Update();        
     }
 }

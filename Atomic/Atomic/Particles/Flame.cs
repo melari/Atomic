@@ -14,18 +14,14 @@ namespace Atomic
         {                        
         }
         public Flame(ParticleEngine engine, Vector2 position, Color color)
-            : base(engine, 
-                    position,                                                            
-                    Resources.GetSprite("PART_Fire"))                  
+            : base(engine, position)                  
         {
-            this.color = color;
-            this.method = new DriftMethod(this,
-                            engine,
-                            new Vector2((float)MathExtra.rand.NextDouble() / 4 - 0.125f, (float)MathExtra.rand.NextDouble() - 1.5f),
-                            Vector2.Zero,
-                            150,
-                            0.25f,
-                            0.25f);
+            this.color = color;            
+        }
+
+        public override void Draw(SpriteBatch spriteBatch)
+        {            
+            spriteBatch.Draw(Resources.GetSprite("PART_Fire"), position, null, color, rotation, new Vector2(256, 256), scale, SpriteEffects.None, 0.0f);
         }
     }
 }

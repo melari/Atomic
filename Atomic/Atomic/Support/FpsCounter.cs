@@ -46,7 +46,7 @@ namespace Atomic
             spriteBatch.DrawString(Resources.GetFont("ConsoleFont"), "FPS: " + fps.ToString(), new Vector2(32, 32), Color.White);
 
             spriteBatch.DrawString(Resources.GetFont("ConsoleFont"), "UFPS: " + update_fps.ToString(), new Vector2(33, 66), Color.Black);
-            spriteBatch.DrawString(Resources.GetFont("ConsoleFont"), "UFPS: " + update_fps.ToString(), new Vector2(32, 62), Color.White);
+            spriteBatch.DrawString(Resources.GetFont("ConsoleFont"), "UFPS: " + update_fps.ToString(), new Vector2(32, 65), Color.White);
             spriteBatch.End();
         }
     }

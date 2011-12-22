@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
 namespace Atomic
 {
@@ -25,17 +26,11 @@ namespace Atomic
         }
         public void AddParticle(Particle part, bool additive)
         {
-            if (additive) { additiveParticles.Add(part); }
-            else { alphaParticles.Add(part); }
-        }
+            if (additive) { additiveParticles.AddBuffer.Add(part); }
+            else { alphaParticles.AddBuffer.Add(part); }            
+        }        
 
         public void DestroyParticle(Particle part)
-        {
-            alphaParticles.Remove(part);
-            additiveParticles.Remove(part);
-        }
-
-        public void BufferedDestroyParticle(Particle part)
         {
             alphaParticles.RemoveBuffer.Add(part);
             additiveParticles.RemoveBuffer.Add(part);
@@ -57,7 +52,7 @@ namespace Atomic
                 p.Update();
             }
             alphaParticles.ApplyBuffers();
-            additiveParticles.ApplyBuffers();            
+            additiveParticles.ApplyBuffers();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -75,6 +70,36 @@ namespace Atomic
                 p.Draw(spriteBatch);
             }
             spriteBatch.End();
+        }
+
+
+        /* =========================================================
+         * Below are helper functions to create
+         * predetermined particle patterns (ie fire, smoke, ect.)
+         * ======================================================= */
+        public void CreateFire(Vector2 position, Color color, float scale = 0.25f, bool smoke = true)
+        {
+            Particle p = new Flame(this, position, color);            
+            new DriftMethod(p,
+                        this,
+                        new Vector2((float)MathExtra.rand.NextDouble() / 4 - 0.125f, (float)MathExtra.rand.NextDouble() - 1.5f),
+                        Vector2.Zero,
+                        150,
+                        scale,
+                        scale);                        
+            this.AddParticle(p, true);
+
+            if (smoke)
+            {
+                p = new Smoke(this, position - Vector2.UnitY*50);
+                new DriftMethod(p, this,
+                                    new Vector2((float)MathExtra.rand.NextDouble() / 4 - 0.125f, (float)MathExtra.rand.NextDouble() - 1.25f),
+                                    new Vector2(0.001f, 0.0f),
+                                    300,
+                                    scale/2,
+                                    scale);
+                this.AddParticle(p);
+            }
         }
     }
 }
