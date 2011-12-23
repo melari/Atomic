@@ -31,7 +31,7 @@ namespace Atomic
         bool OUT = true;
         Screen nextScreen;
 
-        Console console;
+        public Console console;
 
         public Engine()
         {

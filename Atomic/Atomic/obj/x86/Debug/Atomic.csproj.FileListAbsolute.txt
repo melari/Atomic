@@ -10,3 +10,6 @@ C:\Users\Caleb\Workspace\c#\Atomic\Atomic\Atomic\bin\x86\Debug\Content\Pixel.xnb
 C:\Users\Caleb\Workspace\c#\Atomic\Atomic\Atomic\bin\x86\Debug\Content\ConsoleFont.xnb
 C:\Users\Caleb\Workspace\c#\Atomic\Atomic\Atomic\bin\x86\Debug\Content\Particles\explosion.xnb
 C:\Users\Caleb\Workspace\c#\Atomic\Atomic\Atomic\bin\x86\Debug\Content\Particles\smoke.xnb
+C:\Users\Caleb\Workspace\c#\Atomic\Atomic\Atomic\bin\x86\Debug\Lidgren.Network.dll
+C:\Users\Caleb\Workspace\c#\Atomic\Atomic\Atomic\bin\x86\Debug\Lidgren.Network.pdb
+C:\Users\Caleb\Workspace\c#\Atomic\Atomic\Atomic\bin\x86\Debug\Lidgren.Network.xml

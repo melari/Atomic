@@ -108,6 +108,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Multiplayer\ConnectionController.cs" />
+    <Compile Include="Multiplayer\MPlayer.cs" />
+    <Compile Include="Multiplayer\MPScreen.cs" />
     <Compile Include="Particles\Emitter.cs" />
     <Compile Include="Particles\Methods\DeadMethod.cs" />
     <Compile Include="Particles\Methods\DriftMethod.cs" />
@@ -123,6 +126,7 @@
     <Compile Include="Engine.cs" />
     <Compile Include="Screens\Blank.cs" />
     <Compile Include="Screens\MenuScreen.cs" />
+    <Compile Include="Screens\MultiplayerTestScreen.cs" />
     <Compile Include="Screens\OptionsScreen.cs" />
     <Compile Include="Screens\Screen.cs" />
     <Compile Include="Screens\TestScreen.cs" />
@@ -136,6 +140,7 @@
     <Compile Include="Support\Resources.cs" />
     <Compile Include="Support\VideoSettings.cs" />
     <Compile Include="Support\BufferedList.cs" />
+    <Compile Include="WorldObjects\Dot.cs" />
     <Compile Include="WorldObjects\WorldObject.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -143,6 +148,10 @@
     <Content Include="GameThumbnail.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Lidgren.Network\Lidgren.Network.csproj">
+      <Project>{AE483C29-042E-4226-BA52-D247CE7676DA}</Project>
+      <Name>Lidgren.Network</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AtomicContent\AtomicContent.contentproj">
       <Name>AtomicContent</Name>
       <XnaReferenceType>Content</XnaReferenceType>
