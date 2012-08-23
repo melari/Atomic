@@ -1,8 +1,0 @@
-C:\Users\Caleb\Workspace\c#\Atomic\AtomicServer\bin\Debug\AtomicServer.exe
-C:\Users\Caleb\Workspace\c#\Atomic\AtomicServer\bin\Debug\AtomicServer.pdb
-C:\Users\Caleb\Workspace\c#\Atomic\AtomicServer\bin\Debug\Lidgren.Network.dll
-C:\Users\Caleb\Workspace\c#\Atomic\AtomicServer\bin\Debug\Lidgren.Network.pdb
-C:\Users\Caleb\Workspace\c#\Atomic\AtomicServer\bin\Debug\Lidgren.Network.xml
-C:\Users\Caleb\Workspace\c#\Atomic\AtomicServer\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\Caleb\Workspace\c#\Atomic\AtomicServer\obj\x86\Debug\AtomicServer.exe
-C:\Users\Caleb\Workspace\c#\Atomic\AtomicServer\obj\x86\Debug\AtomicServer.pdb

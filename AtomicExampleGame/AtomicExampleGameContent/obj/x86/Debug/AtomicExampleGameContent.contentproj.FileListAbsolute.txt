@@ -1,0 +1,2 @@
+C:\Users\Caleb\Workspace\c#\Atomic_v2\AtomicExampleGame\AtomicExampleGameContent\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Caleb\Workspace\c#\Atomic\AtomicExampleGame\AtomicExampleGameContent\obj\x86\Debug\ResolveAssemblyReference.cache
