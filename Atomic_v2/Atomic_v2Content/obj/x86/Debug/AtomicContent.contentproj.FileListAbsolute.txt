@@ -1,2 +1,0 @@
-C:\Users\Caleb\Workspace\c#\Atomic_v2\Atomic_v2\Atomic_v2Content\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\Caleb\Workspace\c#\Atomic\Atomic_v2\Atomic_v2Content\obj\x86\Debug\ResolveAssemblyReference.cache

@@ -1,6 +1,0 @@
-Content\Pixel.xnb
-Content\particles\p_explosion.xnb
-Content\particles\p_smoke.xnb
-Content\ConsoleFont.xnb
-Content\MenuFont.xnb
-Content\TitleFont.xnb
