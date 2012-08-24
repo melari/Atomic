@@ -7,11 +7,13 @@ using Microsoft.Xna.Framework;
 
 namespace AtomicExampleGame
 {
-    class Block : RectangleCollidable
+    class Block : PolygonCol
     {
         public Block(Atom a, Vector2 position, Vector2 size)
-            : base(a, position, size)
+            : base(a, position, position + new Vector2(size.X, 0))
         {
+            AddPoint(position + size);
+            Close();
         }
     }
 }

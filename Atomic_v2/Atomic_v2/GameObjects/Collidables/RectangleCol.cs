@@ -7,29 +7,29 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Atomic
 {
-    public abstract class RectangleCollidable : GameObject
+    public class RectangleCol : GameObject
     {
         Vector2 size;
         public Vector2 center { get { return position + size / 2; } set { position = value - size / 2; } }
         public float bottom { get { return position.Y + size.Y; } set { position.Y = value - size.Y; } }
         public float right { get { return position.X + size.X; } set { position.X = value - size.X; } }
 
-        public RectangleCollidable(Atom a, Vector2 position, Vector2 size)
+        public RectangleCol(Atom a, Vector2 position, Vector2 size)
             : base(a, position)
         {
             this.size = size;
         }
 
-        public Vector2 Move(List<RectangleCollidable> objs)
+        public Vector2 Move(List<RectangleCol> objs)
         {
             velocity += acceleration;
             acceleration = Vector2.Zero;
             return new Vector2(MoveX(objs), MoveY(objs));
         }
 
-        public virtual void CollideWith(RectangleCollidable obj) { }
+        public virtual void CollideWith(RectangleCol obj) { }
 
-        private float MoveX(List<RectangleCollidable> objs)
+        private float MoveX(List<RectangleCol> objs)
         {
             float _normal = 0;
 
@@ -38,11 +38,11 @@ namespace Atomic
             float _maxX = float.PositiveInfinity;
 
             // Sets the closest object collided with to null
-            RectangleCollidable _closestMinObj = null;
-            RectangleCollidable _closestMaxObj = null;
+            RectangleCol _closestMinObj = null;
+            RectangleCol _closestMaxObj = null;
 
             // Checks each object in the room and finds which objects restrict X.
-            foreach (RectangleCollidable obj in objs)
+            foreach (RectangleCol obj in objs)
             {
                 if (obj == this) continue;  // Don't check for collision with self
 
@@ -91,18 +91,18 @@ namespace Atomic
             return _normal;
         }
 
-        private float MoveY(List<RectangleCollidable> objs)
+        private float MoveY(List<RectangleCol> objs)
         {
             float _normal = 0;
 
             float _minY = float.NegativeInfinity;
             float _maxY = float.PositiveInfinity;
 
-            RectangleCollidable _closestMinObj = null;
-            RectangleCollidable _closestMaxObj = null;
+            RectangleCol _closestMinObj = null;
+            RectangleCol _closestMaxObj = null;
 
             // Investigates all objects to find max and min.
-            foreach (RectangleCollidable obj in objs)
+            foreach (RectangleCol obj in objs)
             {
                 if (obj == this) continue;  // Don't check for collision with self
 

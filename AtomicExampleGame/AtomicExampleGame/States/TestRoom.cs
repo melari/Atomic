@@ -12,7 +12,7 @@ namespace AtomicExampleGame
     {
         ParticleEngine pe = new ParticleEngine();
 
-        List<RectangleCollidable> objs = new List<RectangleCollidable>();
+        List<PolygonCol> objs = new List<PolygonCol>();
         Player player;
 
         public TestRoom(Engine a, int layer)
@@ -66,7 +66,7 @@ namespace AtomicExampleGame
             if (Input.MLBPressed())
             {
                 GameObject block = new Block(a, Input.mouse, new Vector2(32, 32));
-                objs.Add((RectangleCollidable)block);
+                objs.Add((PolygonCol)block);
                 objects.Add(block);
             }
 
@@ -91,7 +91,7 @@ namespace AtomicExampleGame
         public override void BackgroundDraw(SpriteBatch spriteBatch) { Draw(spriteBatch); }
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.GraphicsDevice.Clear(Color.Black);
+            spriteBatch.GraphicsDevice.Clear(Color.LightGray);
             base.Draw(spriteBatch);
             pe.Draw(spriteBatch);
         }

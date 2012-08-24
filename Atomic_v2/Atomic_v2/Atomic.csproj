@@ -107,7 +107,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameObjects\Collidables\RectangleCollidable.cs" />
+    <Compile Include="GameObjects\Collidables\PolygonCol\Edge.cs" />
+    <Compile Include="GameObjects\Collidables\PolygonCol\PolygonCol.cs" />
+    <Compile Include="GameObjects\Collidables\RectangleCol.cs" />
     <Compile Include="GameObjects\GameObject.cs" />
     <Compile Include="ParticleEngine\ParticleMethods\ConstantForceMethod.cs" />
     <Compile Include="ParticleEngine\EmitterParticle.cs" />

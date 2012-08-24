@@ -9,14 +9,16 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace AtomicExampleGame
 {
-    public class Player : RectangleCollidable
+    public class Player : PolygonCol
     {
         public Player(Atom a, Vector2 position)
-            : base(a, position, new Vector2(32, 32))
+            : base(a, position, position + new Vector2(32, 0))
         {
+            AddPoint(position + new Vector2(32, 32));
+            Close();
         }
 
-        public void Update(List<RectangleCollidable> objs)
+        public void Update(List<PolygonCol> objs)
         {
             if (Input.KeyDown(Keys.Left))
                 ApplyForce(new Vector2(-0.5f, 0));
@@ -30,7 +32,7 @@ namespace AtomicExampleGame
             ApplyFriction(0.1f);
 
 
-            Move(objs);
+            base.Update(objs);
         }
     }
 }
