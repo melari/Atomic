@@ -5,28 +5,32 @@ using System.Text;
 using Atomic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace AtomicExampleGame
 {
-    public class Player : GameObject
+    public class Player : RectangleCollidable
     {
         public Player(Atom a, Vector2 position)
-            : base(a, position, new Vector2(16f, 16f))
+            : base(a, position, new Vector2(32, 32))
         {
         }
 
-        public override void Update()
+        public void Update(List<RectangleCollidable> objs)
         {
             if (Input.KeyDown(Keys.Left))
-                position.X -= 1;
+                ApplyForce(new Vector2(-0.5f, 0));
             if (Input.KeyDown(Keys.Right))
-                position.X += 1;
+                ApplyForce(new Vector2(0.5f, 0));
             if (Input.KeyDown(Keys.Up))
-                position.Y -= 1;
+                ApplyForce(new Vector2(0, -0.5f));
             if (Input.KeyDown(Keys.Down))
-                position.Y += 1;
+                ApplyForce(new Vector2(0, 0.5f));
 
-            base.Update();
+            ApplyFriction(0.1f);
+
+
+            Move(objs);
         }
     }
 }

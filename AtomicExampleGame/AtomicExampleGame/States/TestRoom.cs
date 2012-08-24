@@ -12,6 +12,9 @@ namespace AtomicExampleGame
     {
         ParticleEngine pe = new ParticleEngine();
 
+        List<RectangleCollidable> objs = new List<RectangleCollidable>();
+        Player player;
+
         public TestRoom(Engine a, int layer)
             : base(a, layer)
         {
@@ -19,7 +22,8 @@ namespace AtomicExampleGame
             a.console.RegisterStateCommands(pe);
             a.console.Execute("fps true");
 
-            objects.Add(new Player(a, new Vector2(100f, 100f)));
+            player = new Player(a, new Vector2(100f, 100f));
+            objects.Add(player);
 
             Particle p = new EmitterParticle(pe, new Vector2(a.resolution.X / 4 * 3, a.resolution.Y * 3 / 4 + 50), delegate(Particle emitter, ParticleEngine engine)
             {
@@ -59,6 +63,16 @@ namespace AtomicExampleGame
         public override void BackgroundUpdate() { Update(); }
         public override void Update()
         {
+            if (Input.MLBPressed())
+            {
+                GameObject block = new Block(a, Input.mouse, new Vector2(32, 32));
+                objs.Add((RectangleCollidable)block);
+                objects.Add(block);
+            }
+
+            player.Update(objs);
+
+
             if (MathExtra.random.NextDouble() < 0.2f)
             {
                 pe.CreateFire(a.resolution/2, Color.White, 0.25f, true);

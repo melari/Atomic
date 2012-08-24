@@ -107,8 +107,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameObjects\CollisionMasks\CollisionMask.cs" />
-    <Compile Include="GameObjects\CollisionMasks\CircleCollisionMask.cs" />
+    <Compile Include="GameObjects\Collidables\RectangleCollidable.cs" />
     <Compile Include="GameObjects\GameObject.cs" />
     <Compile Include="ParticleEngine\ParticleMethods\ConstantForceMethod.cs" />
     <Compile Include="ParticleEngine\EmitterParticle.cs" />

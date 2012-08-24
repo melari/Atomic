@@ -107,6 +107,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Block.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="States\MainMenu.cs" />
     <Compile Include="States\OptionsMenu.cs" />
