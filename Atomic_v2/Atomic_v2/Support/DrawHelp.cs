@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace Atomic
 {
-    static class DrawHelp
+    public static class DrawHelp
     {
         public static void DrawRectangle(SpriteBatch spriteBatch, Vector2 position, Vector2 size, Color color)
         {
