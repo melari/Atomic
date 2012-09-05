@@ -16,9 +16,13 @@ namespace Atomic
     /// </summary>
     public class Atom : Microsoft.Xna.Framework.Game
     {
-        protected string[] sprites = { };
-        protected string[] fonts = { };
-        protected string[] sounds = { };
+        string[] _sprites = { };
+        string[] _fonts = { };
+        string[] _sounds = { };
+
+        public virtual string[] sprites { get { return _sprites; } protected set { _sprites = value; } }
+        public virtual string[] fonts { get { return _fonts; } protected set { _fonts = value; } }
+        public virtual string[] sounds { get { return _sounds; } protected set { _sounds = value; } }
 
         protected GraphicsDeviceManager graphics;
         protected SpriteBatch spriteBatch;

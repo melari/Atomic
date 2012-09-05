@@ -14,9 +14,13 @@ namespace AtomicExampleGame
 {
     public class Engine : Atom
     {
-        new string[] sprites = { };
-        new string[] fonts = { };
-        new string[] sounds = { };
+        string[] _sprites = { };
+        string[] _fonts = { };
+        string[] _sounds = { };
+
+        public override string[] sprites { get { return _sprites; } protected set { _sprites = value; } }
+        public override string[] fonts { get { return _fonts; } protected set { _fonts = value; } }
+        public override string[] sounds { get { return _sounds; } protected set { _sounds = value; } }
 
         public ConsoleState console { get; private set; }
 
@@ -39,7 +43,7 @@ namespace AtomicExampleGame
         /// </summary>
         public void CorrectBugN()
         {
-            console.Execute("echo \"Correcting for BugN\"; StateManager.focus \"ConsoleState\"; StateManager.pause true; fullscreen true; fullscreen false; sleep 80; echo \"Corection completed.\"; sleep 30; StateManager.dropFocus; StateManager.pause false");
+            console.Execute("echo \"Correcting for BugN\"; StateManager.focus \"ConsoleState\"; StateManager.pause true; fullscreen true; sleep 60; fullscreen false; sleep 80; echo \"Corection completed.\"; sleep 30; StateManager.dropFocus; StateManager.pause false");
         }
     }
 }
