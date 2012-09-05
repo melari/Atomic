@@ -15,8 +15,7 @@ namespace Atomic
         Color[] colors = new Color[20];
         int line_i = 0;
 
-        string current = "";
-        int cursorIndex = 0;
+        TextInput current = new TextInput();
 
         public delegate void Command(ConsoleState cl, string[] args);
 
@@ -286,10 +285,14 @@ namespace Atomic
                             foreach (string p in parts)
                             {
                                 if (!first) { arg_i++; }
-                                if (p.StartsWith("#"))
-                                    args[arg_i] += p;
-                                else
-                                    args[arg_i] += GetVariable(p);
+                                try
+                                {
+                                    if (p.StartsWith("#"))
+                                        args[arg_i] += p;
+                                    else
+                                        args[arg_i] += GetVariable(p);
+                                }
+                                catch (IndexOutOfRangeException e) { args[args.Length - 1] += " " + p; }
                                 first = false;
                             }
                         }
@@ -364,47 +367,24 @@ namespace Atomic
             }
             else if (l == "\n")
             {
-                history.Add(current);
+                history.Add(current.content);
                 history_i = history.Count;
-                Execute(current);
-                current = "";
-                cursorIndex = 0;
+                Execute(current.content);
+                current.Clear();
             }
-            else if (l == Convert.ToChar(0x8).ToString())
+            else
             {
-                if (cursorIndex > 0) 
-                {
-                    current = current.Remove(cursorIndex-1, 1);
-                    cursorIndex--;
-                }
-            }
-            else if (l != "")
-            {
-                if (cursorIndex == current.Length)
-                    current += l;
-                else
-                    current = current.Insert(cursorIndex, l);
-                cursorIndex += l.Length;
+                current.Update(l);
             }
 
             if (Input.KeyPressed(Keys.Up) && history_i > 0)
             {
-                current = history[--history_i];
-                cursorIndex = current.Length;
+                current.SetContent(history[--history_i]);
             }
             if (Input.KeyPressed(Keys.Down) && history_i < history.Count)
             {
-                current = ++history_i == history.Count ? "" : history[history_i];
-                cursorIndex = current.Length;
+                current.SetContent(++history_i == history.Count ? "" : history[history_i]);
             }
-            if (Input.KeyPressed(Keys.Left) && cursorIndex > 0)
-                cursorIndex--;
-            if (Input.KeyPressed(Keys.Right) && cursorIndex < current.Length)
-                cursorIndex++;
-            if (Input.KeyPressed(Keys.Home))
-                cursorIndex = 0;
-            if (Input.KeyPressed(Keys.End))
-                cursorIndex = current.Length;
 
             if (Input.KeyReleased(Keys.OemTilde))
                 a.stateManager.DropFocus();
@@ -441,7 +421,7 @@ namespace Atomic
 
             if (sleepCom == "")
             {
-                string line = "> " + current.Substring(0, cursorIndex) + "|" + current.Substring(cursorIndex);
+                string line = "> " + current.GetContentWithPipe();
                 spriteBatch.DrawString(Resources.GetFont("ConsoleFont"), line, new Vector2(10, y + 20), Color.Green);
             }
             spriteBatch.End();

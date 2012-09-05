@@ -111,6 +111,9 @@
     <Compile Include="GameObjects\Collidables\PolygonCol\PolygonCol.cs" />
     <Compile Include="GameObjects\Collidables\RectangleCol.cs" />
     <Compile Include="GameObjects\GameObject.cs" />
+    <Compile Include="GUI\GuiManager.cs" />
+    <Compile Include="GUI\InputField.cs" />
+    <Compile Include="GUI\TextInput.cs" />
     <Compile Include="ParticleEngine\ParticleMethods\ConstantForceMethod.cs" />
     <Compile Include="ParticleEngine\EmitterParticle.cs" />
     <Compile Include="ParticleEngine\ParticleMethods\FadeInOutMethod.cs" />
